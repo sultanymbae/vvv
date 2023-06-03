@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib import admin
+from django.urls import path
 
+from anketa.views import questionnaire, result
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('questionnaire/', questionnaire, name='questionnaire'),
+    path('result/<int:pk>/', result, name='result'),
+]
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
